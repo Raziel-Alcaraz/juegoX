@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Juego de Raziel</title>  
+
+<style>
+#container {
+  width: 1055px;
+  height: 814px;
+  position: relative;
+  background: yellow;
+  margin:0 auto;
+  display: block;
+  margin-top: 10vh;
+}
+#container img{
+    width: 100%;
+    height: 100%;
+    position:absolute;
+    
+}
+.animate {
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  background-color: red;
+  border-radius: 50%;
+}
+.pieza{
+    border-radius: 50%;
+    margin: 0;
+    border: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#dialogo{
+    width: 0px;
+    height:0px;
+     vertical-align: middle;
+    background-color: rgba(0,255,0,0.8);
+    border: 0px;
+    border-radius: 16px;
+ margin: 0;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow-y: scroll;
+}
+.dado{
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+}
+.tirada{
+    width: 201px;
+    margin: auto;
+    height:120px;
+    display: block;
+}
+.botoncentrado{
+    display: block;
+    margin: auto;  
+}
+.imagentirada{
+    display: block;
+    margin: auto;
+    width:100px;
+}
+#cerrardialogo{
+    position: relative;
+    float: right;
+    clear: both;
+  border-radius: 50%;
+    top: 25px;
+    color: white;
+    background-color: red;
+}
+#spacertop{
+    top:0px;
+    width: 100%;
+    height: 10vh;
+    position:fixed;
+    display:block;
+    background-color: #ffffff;
+}
+.texto{
+    line-height: 25px;
+    text-align: center;
+    margin: auto;
+    width: 50%;
+}
+#loginForma{
+     line-height: 25px;
+    text-align: center;
+    margin: auto;
+    width: 50%; 
+}
+area{
+    background-color: #FF0000;
+    cursor: pointer;
+}
+</style>
+
+</head>
+<body>
+
+<div id ="container"><map name="svgimagemap">
+                        <area shape='circle' coords='560,123,50' alt='0'  onclick="casilla('0')"/>
+			<area shape='rect' coords='531,0,587,84' alt='1'  onclick="casilla('1')"/>
+			<area shape='rect' coords='587,3,642,83' alt='2'  onclick="casilla('2')"/>
+			<area shape='rect' coords='642,3,700,85' alt='3'  onclick="casilla('3')"/>
+			<area shape='rect' coords='700,2,756,86' alt='4'  onclick="casilla('4')"/>
+                        <area shape='poly' coords='754,0,842,2,779,84,756,85,754,0' alt='5' onclick="casilla('poly5')"/>
+			<area shape='poly' coords='843,2,910,18,830,100,807,92,779,87' alt='6' onclick="casilla('poly6')" />
+			<area shape='poly' coords='831,101,910,19,970,56,880,127,846,107' alt='7' onclick="casilla('poly7')"/>
+		<area shape='poly' coords='880,129,969,56,1009,96,910,160,892,142' alt='8' onclick="casilla('poly8')"/>
+	<area shape='poly' coords='909,163,1008,98,1041,160,926,193,918,177' alt='9' onclick="casilla('poly9')"/>
+<area shape='poly' coords='928,193,1041,161,1055,235,943,237,937,207' alt='10' onclick="casilla('poly10')"/>
+			<area shape='rect' coords='947,236,1055,291' alt='11'  onclick="casilla('11')"/>
+			<area shape='rect' coords='946,292,1056,352' alt='12'  onclick="casilla('12')"/>
+			<area shape='rect' coords='944,350,1058,406' alt='13'  onclick="casilla('13')"/>
+			<area shape='rect' coords='946,409,1054,465' alt='14'  onclick="casilla('14')"/>
+			<area shape='rect' coords='945,465,1056,522' alt='15'  onclick="casilla('15')"/>
+			<area shape='rect' coords='944,524,1052,578' alt='16'  onclick="casilla('16')"/>
+                        <area shape='poly' coords='943,579,1060,581,1051,624,1041,653,928,626,941,601' alt='17' onclick="casilla('poly17')"/>
+<area shape='poly' coords='931,625,1041,656,1025,694,1009,716,910,651,927,625' alt='18' onclick="casilla('poly18')" />
+<area shape='poly' coords='905,652,1010,718,991,740,972,762,880,688,893,672' alt='19' onclick="casilla('poly19')"  />
+<area shape='poly' coords='877,687,970,760,945,779,911,796,832,716,856,703' alt='20' onclick="casilla('poly20')"  />
+<area shape='poly' coords='831,715,911,798,878,809,842,813,780,726,797,724' alt='21' onclick="casilla('poly21')"  />
+<area shape='poly' coords='778,729,845,811,804,812,757,814,756,750,757,730' alt='22' onclick="casilla('poly22')"  />
+			<area shape='rect' coords='698,730,755,811' alt='23'  onclick="casilla('23')"/>
+			<area shape='rect' coords='641,732,698,813' alt='24'  onclick="casilla('24')"/>
+			<area shape='rect' coords='585,732,642,811' alt='25'  onclick="casilla('25')"/>
+			<area shape='rect' coords='529,732,585,812' alt='26'  onclick="casilla('26')"/>
+			<area shape='rect' coords='470,728,528,814' alt='27'  onclick="casilla('27')"/>
+			<area shape='rect' coords='356,730,414,811' alt='29'  onclick="casilla('29')"/>
+			<area shape='rect' coords='414,729,470,812' alt='28'  onclick="casilla('28')"/>
+			<area shape='rect' coords='300,728,357,811' alt='30'  onclick="casilla('30')"/>
+<area shape='poly' coords='300,728,301,809,260,810,213,812,249,757,277,727' alt='31' onclick="casilla('poly31')"  />
+<area shape='poly' coords='279,727,211,809,173,807,146,794,196,740,224,714' alt='32' onclick="casilla('poly32')"  />
+<area shape='poly' coords='224,711,141,797,112,778,86,755,177,684,195,699' alt='33' onclick="casilla('poly33')"  />
+<area shape='poly' coords='175,683,85,758,69,743,46,717,146,652,158,665' alt='34' onclick="casilla('poly34')"  />
+<area shape='poly' coords='146,652,45,713,36,702,15,654,104,627,128,623' alt='35' onclick="casilla('poly35')"  />
+<area shape='poly' coords='127,621,16,655,6,625,4,577,111,577,118,599' alt='36' onclick="casilla('poly36')"  />
+			<area shape='rect' coords='0,521,110,579' alt='37'  onclick="casilla('37')"/>
+			<area shape='rect' coords='3,464,110,522' alt='38'  onclick="casilla('38')"/>
+			<area shape='rect' coords='3,410,110,464' alt='39'  onclick="casilla('39')"/>
+			<area shape='rect' coords='1,352,110,408' alt='40'  onclick="casilla('40')"/>
+			<area shape='rect' coords='-1,294,108,353' alt='41'  onclick="casilla('41')"/>
+			<area shape='rect' coords='2,240,109,294' alt='42'  onclick="casilla('42')"/>
+<area shape='poly' coords='109,235,0,234,-3,215,11,164,123,193,116,211' alt='43' onclick="casilla('poly43')"  />
+<area shape='poly' coords='125,195,13,161,22,129,43,101,143,164,136,179' alt='44' onclick="casilla('poly44')"  />
+<area shape='poly' coords='144,162,46,99,61,81,83,57,174,131,160,146' alt='45' onclick="casilla('poly45')"  />
+<area shape='poly' coords='177,130,85,61,102,43,142,20,221,102,200,114' alt='46' onclick="casilla('poly46')"  />
+<area shape='poly' coords='223,102,143,21,165,10,212,5,273,87,253,93' alt='47' onclick="casilla('poly47')"  />
+<area shape='poly' coords='274,87,212,4,224,4,297,4,297,53,296,87' alt='48' onclick="casilla('poly48')"  />                        
+			<area shape='rect' coords='299,3,356,85' alt='49'  onclick="casilla('49')"/>
+			<area shape='rect' coords='357,4,413,84' alt='50'  onclick="casilla('50')"/>
+			<area shape='rect' coords='414,5,470,85' alt='51'  onclick="casilla('51')"/>
+			<area shape='rect' coords='468,3,529,85' alt='52'  onclick="casilla('52')"/>
+
+
+
+</map>
+  <img src="gamee.png" usemap="#svgimagemap">
+  
+  <div class ="animate" id="player1"></div>
+  <div class ="animate" id="player2"></div>
+  <div class ="animate" id="player3"></div>
+ <div class ="animate" id="player0"></div>
+</div>
+        <div id="spacertop"><button onclick="logout()">SALIR</button>Bienvenido, <a id="Lnombre"></a>
+        <br><a id="cualcasilla"></a> <button onclick="tirar()">TIRAR</button></div>
+ <div id="dialogo"></div>
+<script>
+    var Lnombre, Lfoto;
+    var juegoActivo = false;
+    var year=0;
+    var tipos={
+        0: ["Inicio","reset.png"],
+        1:["¡Año Nuevo!","reset.png"],
+        2:["Mercados","mercado.png"],
+        3:["Apuesta", "apuesta.png"],
+        4:["Riesgo puro","riesgo.png"],
+        5:["Tiempo libre","tiempolibre.png"],
+        6:["Familia","familia.png"],
+        7:["Catástrofe", "catastrofe.png"],
+        8:["Día de pago","payday.png"],
+        9:["Muerte prematura", "muerte.png"]
+    };
+    var casillas = {0:[510,93,0],
+                    1:[530,3,1],
+                    2:[587,3,2],
+                    3:[642,3,3],
+                    4:[700,2,4],
+                    5:[745,10,6],
+                    6:[813,15,5],
+                    7:[850,45,6],
+                    8:[915,63,4],
+                    9:[945,110,7],
+                    10:[950,180,2],
+                    11:[955,240,3],
+                    12:[955,280,4],
+                    13:[955,340,5],
+                    14:[955,400,8],
+                    15:[955,460,6],
+                    16:[955,520,4],
+                    17:[950,580,5],
+                    18:[945,640,2],
+                    19:[910,680,3],
+                    20:[860,705,4],
+                    21:[810,730,7],
+                    22:[745,735,5],
+                    23:[690,735,6],
+                    24:[638,735,4],
+                    25:[577,735,5],
+                    26:[530,735,2],
+                    27:[460,735,8],
+                    28:[410,735,4],
+                    29:[350,735,3],
+                    30:[290,735,5],
+                    31:[240,735,6],
+                    32:[180,730,4],
+                    33:[125,705,7],
+                    34:[80,680,2],
+                    35:[50,620,3],
+                    36:[30,580,4],
+                    37:[20,520,7],
+                    38:[20,460,4],
+                    39:[20,400,6],
+                    40:[20,340,8],
+                    41:[20,280,5],
+                    42:[20,230,2],
+                    43:[25,175,3],
+                    44:[50,120,4],
+                    45:[80,68,7],
+                    46:[120,45,5],
+                    47:[180,15,6],
+                    48:[240,10,4],
+                    49:[290,3,9],
+                    50:[350,3,2],
+                    51:[410,2,3],
+                    52:[460,1,4]
+                    };
+    var playerpositions = {
+        0:0,
+        1:0,
+        2:0,
+        3:0
+    };
+    var prevpos = {
+        0:0,
+        1:0,
+        2:0,
+        3:0 
+    };
+            /*pseudocode-------------------------------
+             * inicio
+             * se coloca player en salida
+             * {
+             * click en tirar
+             * se genera tirada
+             * se verifica el numero de casilla
+             * se suman las casillas
+             *  si casilla> 52, se cicla y se aumenta un anio
+             * se encuentra el numero de casilla resultante
+             * se anima el player
+             * 
+             * finalizada la animacion se verifica el tipo de casilla
+             * }
+             * {
+             * se aleatoriza el efecto de la casilla seg'un su tipo
+             * se realiza el efecto de la casilla en el juego
+             * se abre la opci'on de mercado/spare time/estudio
+             * se da la opci'on de terminar turno
+             * }
+             * 
+             * 
+             */
+function myMove() {
+  var elem = document.getElementById("animate");   
+  var pos = 0;
+  var id = setInterval(frame, 5);
+  function frame() {
+    if (pos == 350) {
+      clearInterval(id);
+    } else {
+      pos++; 
+      elem.style.top = pos + "px"; 
+      elem.style.left = pos + "px"; 
+    }
+  }
+}
+function tirar(){
+    if(playerpositions[0]==0){
+        mover(casillas[0][0],casillas[0][0],casillas[0][1],casillas[0][1],0);
+    }
+     console.log(casillas[0][1]);
+   var random1 =1+ Math.floor(Math.random() * 6);  
+   var random2 =1+ Math.floor(Math.random() * 6); 
+   activardialogo();
+    document.getElementById("dialogo").innerHTML += "<div class='tirada'><div class='dado'><img id='dado1'\n\
+src='d"+random1+".png'></div><div class='dado'><img id='dado2'\n\
+src='d"+random2+".png'></div></div>";
+
+        console.log("rands: "+random1+", "+random2);
+        document.getElementById("dialogo").innerHTML += "<div class='texto'>Suma "+(random1+random2)+"</div>" ;
+        playerpositions[0]+=random1+random2;
+        if(playerpositions[0]>52){
+            playerpositions[0] = playerpositions[0] - 52;
+            year++;
+            payday();
+        }
+        if((playerpositions[0]>=40 && prevpos[0] < 40)||
+           (playerpositions[0]>=27 && prevpos[0] < 27)||
+           (playerpositions[0]>=14 && prevpos[0] < 14)
+                ){
+            payday();
+        }
+         mover(casillas[prevpos[0]][0],casillas[playerpositions[0]][0],
+         casillas[prevpos[0]][1],casillas[playerpositions[0]][1],0);
+         prevpos[0]= playerpositions[0];
+        document.getElementById("cualcasilla").innerText = playerpositions[0];
+         efectoCasilla(playerpositions[0]);
+        
+}
+function payday(){
+    console.log("PAYDAY!!");
+}
+function efectoCasilla(cual){
+    document.getElementById("dialogo").innerHTML +="<div class='texto'>La casilla es de tipo "+
+            tipos[casillas[cual][2]][0]+"</div>";
+    document.getElementById("dialogo").innerHTML +="<img class='imagentirada' src='"+tipos[casillas[cual][2]][1]+"'>";
+    
+   document.getElementById("dialogo").innerHTML +="<button class='botoncentrado' onclick='cerrardialogo()'>OK</button>";
+       
+}
+function activardialogo(){
+    document.getElementById("dialogo").innerHTML = "<button id='cerrardialogo' onclick='cerrardialogo()'>X</button><br>";
+    document.getElementById("dialogo").style.width="50vw";
+     document.getElementById("dialogo").style.height="50vh";
+     document.getElementById("dialogo").style.margin="0 auto";
+     document.getElementById("dialogo").style.display="block";
+    document.getElementById("dialogo").style.border="5px solid green";
+}
+function cerrardialogo(){
+   document.getElementById("dialogo").style.width="0vw";
+     document.getElementById("dialogo").style.height="0vh";
+     document.getElementById("dialogo").style.margin="0";
+     document.getElementById("dialogo").style.display="none";  
+     document.getElementById("dialogo").innerHTML = "";
+      document.getElementById("dialogo").style.border="0px solid green";
+}
+
+
+function mover(x0,x1,y0,y1, playerid) {
+    console.log("moviendo player", playerid);
+     
+    //x0 y y0 son los puntos actuales
+    //x1 y y1 son los puntos de destino
+  var elem = document.getElementById("player"+playerid);  
+   elem.style.top = y0 + "px"; 
+      elem.style.left = x0 + "px"; 
+  var pos = 0;
+  var id = setInterval(frame, .1);
+  function frame() {
+    if (x0 == x1 &&
+            y0 == y1) {
+         // console.log(x0,x1,y0,y1, playerid,"No se movio");
+      clearInterval(id);
+    } else {
+       // console.log(x0,x1,y0,y1, playerid);
+        if(x0<x1){
+      x0++; 
+      if(x0<x1){
+      x0++; 
+        }
+        }
+        else if(x0>x1){
+            x0--;
+            if(x0>x1){
+            x0--;
+        }
+        }
+      if(y0<y1){
+      y0++; 
+       if(y0<y1){
+      y0++; 
+        }
+        }
+        else if(y0>y1){
+            y0--;
+            if(y0>y1){
+            y0--;
+        }
+        }
+      elem.style.top = y0 + "px"; 
+      elem.style.left = x0 + "px"; 
+    }
+  }
+}
+</script>
+
+ <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+
+  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-analytics.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-storage.js"></script>
+<script>
+     var firebaseConfig = {
+    apiKey: "AIzaSyDBpUp6Uk5zknaUZEgTYrea3D-vzyIBwYw",
+    authDomain: "ju3g0-0.firebaseapp.com",
+    databaseURL: "https://ju3g0-0.firebaseio.com",
+    projectId: "ju3g0-0",
+    storageBucket: "ju3g0-0.appspot.com",
+    messagingSenderId: "103692509939",
+    appId: "1:103692509939:web:da429c07222ae418418d86",
+    measurementId: "G-KCN7ZCJY04"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  var database = firebase.database();
+
+//var storage = firebase.storage();
+firebase.auth().languageCode = 'es';
+
+    function promptLogin(){
+    activardialogo();
+     document.getElementById("dialogo").innerHTML +="<div id='loginForma'>\n\
+\n\whatsapp:<input id='wats' type='tel'/><button id='sign-in-button' onclick='loginInicio()'>Loguear</button></div>";
+}
+function getPhoneNumberFromUserInput(){
+    return "+52"+document.getElementById("wats").value;
+}
+function requestCodeFromUser(){
+     activardialogo();
+     document.getElementById("dialogo").innerHTML +="<div id='loginForma'>\n\
+\n\Código:<input id='code' type='text'/><button id='sign-in-button2' onclick='captureCode()'>Loguear</button></div>";
+}
+function getCodeFromUserInput(){
+     return document.getElementById("code").value;
+}
+function captureCode(){
+     //capturar codigo inicio-------------------------------------------------------
+    
+      var code = getCodeFromUserInput();
+confirmationResult.confirm(code).then(function (result) {
+  // User signed in successfully.
+  var user = result.user;
+  console.log("Logueado "+ user.uid);
+  // ...
+}).catch(function (error) {
+  // User couldn't sign in (bad verification code?)
+  // ...
+  console.log("No logueado "+ error);
+  window.alert("No se pudo registrar, error: "+ error + "Por favor recarga la página e intenta de nuevo");
+});
+       //capturar codigo fin-------------------------------------------------------
+}
+function loginInicio(){
+window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('sign-in-button', {
+  'size': 'invisible',
+  'callback': function(response) {
+    // reCAPTCHA solved, allow signInWithPhoneNumber.
+    onSignInSubmit();
+    console.log("Captcha llamado");
+  }
+});
+var phoneNumber = getPhoneNumberFromUserInput();
+var appVerifier = window.recaptchaVerifier;
+firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
+    .then(function (confirmationResult) {
+        console.log("ingreso");
+      // SMS sent. Prompt user to type the code from the message, then sign the
+      // user in with confirmationResult.confirm(code).
+      //confirmationResult.confirm(code)
+      window.confirmationResult = confirmationResult;
+     requestCodeFromUser();
+    }).catch(function (error) {
+     console.log("no logueado: "+error);
+      console.log("No logueado "+ error);
+  window.alert("No se pudo registrar, error: "+ error + "Por favor recarga la página e intenta de nuevo");
+     grecaptcha.reset(window.recaptchaWidgetId);
+
+// Or, if you haven't stored the widget ID:
+//window.recaptchaVerifier.render().then(function(widgetId) {
+//  grecaptcha.reset(widgetId);
+//});
+    });
+
+
+}
+function verificarUsuarioEnDb(numero){
+    console.log("verificandousuario");
+    telefono = numero;
+    var username = "";
+    var userId = firebase.auth().currentUser.uid;
+firebase.database().ref('/players/' + telefono).once('value').then(function(snapshot) {
+ 
+  if(snapshot.val()!==null){//si el usuario existe ya en la db
+       username = (snapshot.val().username);
+       cerrardialogo();
+      setUserPrefs();  
+    }
+    else {
+        //si el usuario no existe en la db
+        activardialogo();
+        document.getElementById("dialogo").innerHTML +="<div class='texto'>Llena tus datos para comenzar<br>\n\
+Nombre: <input type='text' id='nombre'><br>\n\
+Selfie: <input type='file' id='selfie'><br><button onclick='capturarDatos()'>Guardar y Jugar!</button>\n\
+<br><button onclick=logout()>Salir</button></div>"; 
+    }
+});
+
+    
+    
+}
+function capturarDatos(){
+    var name = document.getElementById("nombre").value;
+   // var selfie = document.getElementById("selfie").value;
+  firebase.database().ref('/players/' + telefono).set({
+    username: name});
+/*
+var starCountRef = firebase.database().ref('players/' + telefono);
+starCountRef.on('value', function(snapshot) {
+  updateStarCount(postElement, snapshot.val());
+});*/
+estoreich();
+}
+function estoreich(){
+// Get a reference to the storage service, which is used to create references in your storage bucket
+var storage = firebase.storage();
+// Create a storage reference from our storage service
+//document.getElementById("selfie").files[0].
+var storageRef = storage.ref("fotos/"+telefono+"/selfie");
+var file = document.getElementById("selfie").files[0];
+storageRef.put(file).then(function(snapshot) {
+  console.log('Uploaded a blob or file!');
+});
+setUserPrefs();
+}
+function bajarImagen(cual, id){
+    console.log("bajando imagen");
+    var storage = firebase.storage();
+    var storageRef = storage.ref("fotos/"+telefono);
+    storageRef.child(cual).getDownloadURL().then(function(url) {
+  // `url` is the download URL for 'images/stars.jpg'
+console.log(url);
+  // This can be downloaded directly:
+  var xhr = new XMLHttpRequest();
+  xhr.responseType = 'blob';
+  xhr.onload = function(event) {
+    var blob = xhr.response;
+  };
+  xhr.open('GET', url);
+  xhr.send();
+
+  // Or inserted into an <img> element:
+  
+  document.getElementById(id).innerHTML = "<img id='pieza-"+id+"' class='pieza'>"; 
+  var img = document.getElementById("pieza-"+id);
+  img.src = url;
+}).catch(function(error) {
+  // Handle any errors
+});
+
+}
+function setUserPrefs(){
+    console.log("seteando user prefs");
+    var username = "";
+    var userId = firebase.auth().currentUser.uid;
+firebase.database().ref('players/' + telefono+"/").once("value").then(function(snapshot) {
+  username = (snapshot.val().username);
+  Lnombre = username;
+  document.getElementById("Lnombre").innerText = Lnombre;
+bajarImagen("/selfie","player0");
+//mover(casillas[0],casillas[0],0)
+});
+}
+function casilla(cual){
+    console.log(cual);
+}
+function logout(){
+    firebase.auth().signOut().then(function() {
+  console.log("Sign-out successful.");
+}).catch(function(error) {
+  console.log("An error happened.");
+});
+
+}
+var telefono;
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+    console.log("Usuario logueado");
+    var displayName = user.displayName;
+    var email = user.email;
+    var emailVerified = user.emailVerified;
+    var photoURL = user.photoURL;
+    var isAnonymous = user.isAnonymous;
+    var uid = user.uid;
+    var providerData = user.providerData;
+    verificarUsuarioEnDb(user.providerData[0].phoneNumber);
+    console.log(user.providerData[0].phoneNumber);
+    // ...
+    
+  } else {
+    // User is signed out.
+    // ...
+    promptLogin();
+  }
+});
+
+  </script>
+
+</html>
